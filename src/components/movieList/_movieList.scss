@@ -1,0 +1,23 @@
+.movie-list-f {
+  background-color: $secondary;
+  width: 100%;
+  margin-top: 110px;
+
+  &-grid {
+    display: grid;
+    padding: 15px;
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: space-around;
+    grid-gap: 50px 25px;
+  }
+}
+
+.loading {
+  width: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}

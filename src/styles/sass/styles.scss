@@ -1,0 +1,28 @@
+@import "./config";
+@import "./scrollbar";
+@import "../../components/movieLibrary/movieLibrary";
+@import "../../components/navbar/navbar";
+@import "../../components/movieList/movieList";
+@import "../../components/movieListItem/movieListItem";
+@import "../../components/expandedMovieItem/expandedMovieItem";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Slab", serif;
+
+  &::selection {
+    background: $hover;
+    color: grey;
+  }
+}
+
+html {
+  overflow-x: hidden;
+  background-color: $secondary;
+}
+
+.no-scroll {
+  overflow-y: hidden !important;
+}

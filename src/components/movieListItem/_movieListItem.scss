@@ -1,0 +1,35 @@
+.movie-list-item-f {
+  height: 450px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.1s ease-in-out;
+
+    &:hover {
+      transform: scale(1.01);
+    }
+  }
+
+  &-rating {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    border-radius: 50%;
+    padding: 2px;
+    font-weight: bold;
+
+    &.green {
+      color: #80ed99;
+    }
+    &.yellow {
+      color: #ffdc5a;
+    }
+    &.red {
+      color: #f7391c;
+    }
+  }
+}
