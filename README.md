@@ -1,3 +1,3 @@
 ### Movies app using TMDB API 📽
 
-[Visit site]()
+[Visit site](https://amazing-stonebraker-e60922.netlify.app/)
