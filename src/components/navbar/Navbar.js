@@ -2,9 +2,19 @@ import React from "react";
 import Logo from "../../media/logo.png";
 import SortingOptions from "../sortingOptions/SortingOptions";
 import useNavbar from "./useNavbar";
+import { connect } from "react-redux";
+import MyListItem from "../myListItem/MyListItem";
 
-function Navbar() {
-  const { hide, handleChange, mobileActive, handleHamburguer } = useNavbar();
+function Navbar({ myList }) {
+  const {
+    hide,
+    handleChange,
+    mobileActive,
+    handleHamburguer,
+    toggleMyList,
+    myListVisible,
+    myListState,
+  } = useNavbar(myList);
 
   return (
     <nav className={`navbar ${hide && "hidden"}`}>
@@ -22,7 +32,23 @@ function Navbar() {
           <p>Categories</p>
         </li>
         <li>
-          <p>My list</p>
+          <p onClick={toggleMyList}>My list</p>
+          <div className={`my-list ${myListVisible ? "active" : null}`}>
+            <ul>
+              {myListState &&
+                myListState.length >= 1 &&
+                myListState.map((movie) => {
+                  return (
+                    <MyListItem
+                      key={movie.id}
+                      title={movie.title}
+                      img={movie.poster_path}
+                      id={movie.id}
+                    />
+                  );
+                })}
+            </ul>
+          </div>
         </li>
       </ul>
       <div className="hamburguer" onClick={handleHamburguer}>
@@ -55,4 +81,10 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    myList: state.myList.myList,
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);

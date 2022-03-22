@@ -6,3 +6,17 @@ export function setSortinOptions(selectedOption) {
     payload: selectedOption,
   };
 }
+
+export function addMovieToList(movie) {
+  return {
+    type: ActionTypes.ADD_MOVIE_TO_LIST,
+    payload: movie,
+  };
+}
+
+export function removeMovieFromList(id) {
+  return {
+    type: ActionTypes.REMOVE_MOVIE_FROM_LIST,
+    payload: id,
+  };
+}

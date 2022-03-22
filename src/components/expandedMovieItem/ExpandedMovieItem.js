@@ -3,7 +3,10 @@ import TMDBImage from "../TMDBImage/TMDBImage";
 import useExpandedMovieItem from "./useExpandedMovieItem";
 
 function ExpandedMovieItem({ movie, handleCloseModal }) {
-  const { handleClose, genres } = useExpandedMovieItem(movie, handleCloseModal);
+  const { handleClose, genres, addToList } = useExpandedMovieItem(
+    movie,
+    handleCloseModal
+  );
 
   return (
     <div
@@ -21,7 +24,7 @@ function ExpandedMovieItem({ movie, handleCloseModal }) {
           <p className="genres">{genres.join(" | ")}</p>
           <h2 className="overview">{movie.overview}</h2>
           <p className="rating">Rating: {movie.vote_average} / 10</p>
-          <button>Add to my list</button>
+          <button onClick={addToList}>Add to my list</button>
         </div>
       </div>
     </div>

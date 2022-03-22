@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import genreNames from "./genres.json"; // This json contains the actual names of the genre_ids.
+import { useDispatch } from "react-redux";
+import { addMovieToList } from "../../store/actions";
 
 const useExpandedMovieItemF = (movie, handleCloseModal) => {
   const handleClose = (e) => {
@@ -24,7 +26,13 @@ const useExpandedMovieItemF = (movie, handleCloseModal) => {
     setGenres(innerGenres);
   }, [movie.genre_ids]);
 
-  return { handleClose, genres };
+  const dispatch = useDispatch();
+
+  const addToList = () => {
+    dispatch(addMovieToList(movie));
+  };
+
+  return { handleClose, genres, addToList };
 };
 
 export default useExpandedMovieItemF;

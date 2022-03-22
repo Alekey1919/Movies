@@ -1,0 +1,21 @@
+.my-list-item {
+  display: flex;
+  width: 300%;
+  margin: 10px 0 !important;
+
+  img {
+    height: 160px;
+  }
+
+  p {
+    padding: 10px;
+  }
+
+  button {
+    background: $hover;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    margin: 7px;
+  }
+}
